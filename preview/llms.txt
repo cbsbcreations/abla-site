@@ -1,0 +1,32 @@
+# Abla IA
+
+> Abla answers your restaurant's WhatsApp 24/7, takes the order, confirms it and prints it in your kitchen. It handles 50+ customers at once. From COP 279,000 a month, no commission.
+
+Abla IA is a WhatsApp AI for restaurants in Colombia: it answers customers on WhatsApp 24/7, takes the full order, has the customer confirm it and prints the ticket in the kitchen. It talks with 50+ customers at the same time. Abla also offers a phone AI, an online store with QR ordering, a self-order kiosk and a POS.
+
+## Prices (Colombian pesos)
+- WhatsApp AI: COP 279,000 a month, plus a one-time installation of COP 349,000
+- Reservations by WhatsApp: COP 34,900 a month on top, or reservations only COP 139,000 a month
+- Extra language: COP 34,900 a month per language (Spanish included, 60+ languages available)
+- Phone AI, online store, kiosk and POS: quote per restaurant
+- No commission per order. Restaurants need a laptop and a ticket printer.
+
+## Pages (English)
+- [Home](https://abla.co/en/)
+- [WhatsApp AI](https://abla.co/en/whatsapp-ai)
+- [Phone AI](https://abla.co/en/phone-ai)
+- [Online store and QR](https://abla.co/en/online-store)
+- [Self-order kiosk](https://abla.co/en/kiosk)
+- [Pricing](https://abla.co/en/pricing)
+- [Fast food](https://abla.co/en/fast-food)
+- [Pizzerias](https://abla.co/en/pizzerias)
+- [Burgers](https://abla.co/en/burger-restaurants)
+- [Rotisserie chicken](https://abla.co/en/rotisserie-chicken)
+- [Sushi](https://abla.co/en/sushi)
+- [All restaurants](https://abla.co/en/all-restaurants)
+- [About](https://abla.co/en/about)
+- [Contact](https://abla.co/en/contact)
+- [Privacy and terms](https://abla.co/en/privacy)
+
+## Languages
+Spanish (https://abla.co/es/), Portuguese (https://abla.co/pt/), English (https://abla.co/en/), French (https://abla.co/fr/).

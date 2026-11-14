@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abla.co/sitemap.xml
