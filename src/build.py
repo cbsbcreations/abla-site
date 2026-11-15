@@ -849,6 +849,8 @@ if __name__ == "__main__":
     build(os.path.join(ROOT, "docs"), False)
     write(os.path.join(ROOT, "docs", ".nojekyll"), "")
     if CUSTOM_DOMAIN: write(os.path.join(ROOT, "docs", "CNAME"), CUSTOM_DOMAIN + "\n")
+    # Bing Webmaster Tools verification (account cbsbcreations): the same file verifies every site of that account.
+    write(os.path.join(ROOT, "docs", "BingSiteAuth.xml"), '<?xml version="1.0"?>\n<users>\n\t<user>F9692E89D3413CE1E7C5B84A8A89E30E</user>\n</users>\n')
     PLACEHOLDERS.clear()
     build(os.path.join(ROOT, "preview"), True)
     es = sorted({t for (l, t) in PLACEHOLDERS if l == DEFAULT})
