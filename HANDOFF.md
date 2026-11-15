@@ -49,6 +49,7 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
   Cloudflare is possible from Dec 17, 2026 (60-day .co hold); Cloudflare redacts WHOIS for free.
 - Cloudflare DNS (all "DNS only", grey cloud, so GitHub can issue the certificate): A abla.co -> 185.199.108.153,
   185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME www -> cbsbcreations.github.io.
-- To serve on abla.co: set `CUSTOM_DOMAIN = "abla.co"` in build.py (the build then writes docs/CNAME), rebuild, push; then
-  tick "Enforce HTTPS" in the repo's Settings > Pages once GitHub has issued the certificate.
+- Served on abla.co since 15 Nov 2026: `CUSTOM_DOMAIN = "abla.co"` in build.py makes the build write docs/CNAME; the
+  github.io address now forwards to abla.co. "Enforce HTTPS" is ticked in the repo's Settings > Pages once GitHub has issued
+  the certificate.
 - No live demos (the voice demo and chat demo on the other site are not part of this one; no keys in this site).

@@ -18,7 +18,7 @@ import content_es, content_en, content_pt, content_fr
 SITE = "https://abla.co"
 # GitHub Pages custom domain. Empty = the site answers on cbsbcreations.github.io/abla-site/ only;
 # "abla.co" = the build writes docs/CNAME and GitHub serves the site on abla.co (set once DNS points at GitHub).
-CUSTOM_DOMAIN = ""
+CUSTOM_DOMAIN = "abla.co"
 LANGS = ["es", "pt", "en", "fr"]          # order of the language switch
 DEFAULT = "es"                             # the root address and x-default
 D = {"es": content_es.D, "pt": content_pt.D, "en": content_en.D, "fr": content_fr.D}
