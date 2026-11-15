@@ -41,7 +41,14 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
 - Every restaurant-type page has its own WhatsApp order chat (`chat` in S[...]) and its own ticket.
 - Phone AI, online store and kiosk reuse the Conveasy scenes (pscene, wscene, kscene), in pesos and with ABLA tickets.
 
-## Not done yet
-- No GitHub repo / hosting yet: when the domain is ready, create a repo (same setup as conveasy-site: GitHub Pages from /docs),
-  add docs/CNAME with abla.co, and set the DNS at the registrar (A records to GitHub Pages, CNAME www).
-- No live demos (the Conveasy voice demo and chat demo are Conveasy's; their keys are not in this site).
+## Hosting (15 Nov 2026)
+- Repo: github.com/cbsbcreations/abla-site (public), GitHub Pages from `main` /docs. Live at
+  https://cbsbcreations.github.io/abla-site/ (all links in the pages are relative, so the subpath works).
+- Domain abla.co: registered at Network Solutions (Oct 18, 2026; Perfect Privacy registration on, so the owner's name is
+  hidden), nameservers moved to Cloudflare (amanda / noel.ns.cloudflare.com) on 15 Nov 2026. Transfer of the registration to
+  Cloudflare is possible from Dec 17, 2026 (60-day .co hold); Cloudflare redacts WHOIS for free.
+- Cloudflare DNS (all "DNS only", grey cloud, so GitHub can issue the certificate): A abla.co -> 185.199.108.153,
+  185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME www -> cbsbcreations.github.io.
+- To serve on abla.co: set `CUSTOM_DOMAIN = "abla.co"` in build.py (the build then writes docs/CNAME), rebuild, push; then
+  tick "Enforce HTTPS" in the repo's Settings > Pages once GitHub has issued the certificate.
+- No live demos (the voice demo and chat demo on the other site are not part of this one; no keys in this site).
