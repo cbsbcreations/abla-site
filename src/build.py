@@ -26,7 +26,7 @@ WA_NUMBER = ""      # Abla's WhatsApp number, digits only with country code, e.g
 WA_DISPLAY = ""     # the same number as shown on the site, e.g. "+57 300 123 4567"
 EMAIL = ""          # e.g. "hola@abla.co"
 
-# Prices in Colombian pesos (the owner, Nov 2026)
+# Prices in Colombian pesos (Nov 2026)
 PRICE = {"wa": 279000, "setup": 349000, "resv_addon": 34900, "resv_only": 139000, "lang": 34900}
 
 PRODUCTS = ["whatsapp", "phone", "webshop", "kiosk"]

@@ -1,6 +1,6 @@
 # abla.co: handoff
 
-Website for Abla IA, the owner's Colombian restaurant AI (brand of the Colombian venture; separate from Conveasy).
+Website for Abla IA, the Colombian restaurant AI (brand of the Colombian venture; separate from Conveasy).
 Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain abla.co (not connected yet).
 
 ## Build
@@ -13,7 +13,7 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
 - Prices live in `PRICE` in build.py (COP): WhatsApp IA 279.000/month + installation 349.000 once; reservations +34.900/month
   or reservations only 139.000/month; extra language 34.900/month each. In texts they are written as {wa}, {setup},
   {resv_addon}, {resv_only}, {lang} and formatted per language: $279.000 (es), COP 279.000 (pt), COP 279,000 (en),
-  279 000 COP (fr). Phone AI, online store, kiosk and POS show "Cotización" (no price from the owner).
+  279 000 COP (fr). Phone AI, online store, kiosk and POS show "Cotización" (no price given yet).
 - Facts used (all from the owner): WhatsApp AI main focus, 24/7, 50+ conversations at once (WhatsApp and voice), ticket printed
   in the kitchen, restaurants need a laptop and a ticket printer, Spanish included and 60+ languages as paid extras,
   sales team in Colombia that visits restaurants, POS also offered. Nothing else is claimed (no payment links, no dashboard
