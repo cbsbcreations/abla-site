@@ -694,8 +694,12 @@ def match_band(lang):
     return (f'<section class="band match-band"><div class="wrap"><div class="card match"><span class="match-ball" aria-hidden="true"></span>'
             f'<div><span class="eyebrow">{e(eb)}</span><h2>{e(title)}</h2><p>{e(text)}</p></div></div></div></section>')
 
+SHOW_REFERRAL = False   # the referral band; off since 16 Nov 2026 at the owner's request, texts kept in content_*.py for later
+
 def refer_band(lang, prefix):
-    """The referral offer: a client who recommends a restaurant that becomes a client gets their next month free."""
+    """The referral offer: a client who recommends a restaurant that becomes a client gets their next month free.
+    Only shown when SHOW_REFERRAL is on."""
+    if not SHOW_REFERRAL: return ""
     eb, title, text, btn = T(lang)["REFER"]
     return (f'<section class="band refer-band"><div class="wrap"><div class="refer card"><div><span class="eyebrow">{e(eb)}</span>'
             f'<h2>{e(title)}</h2><p>{e(text)}</p></div><div class="btn-row"><a class="btn btn-primary" href="{prefix + path_of(lang, "contact")}">{e(btn)} '
@@ -860,8 +864,10 @@ def llms():
              f"- Reservations by WhatsApp: {cop(PRICE['resv_addon'], 'en')} a month on top, or reservations only {cop(PRICE['resv_only'], 'en')} a month",
              f"- Extra language: {cop(PRICE['lang'], 'en')} a month per language (Spanish included, 60+ languages available)",
              "- Phone AI, online store, kiosk and POS: quote per restaurant",
-             "- No commission per order. Restaurants need a laptop and a ticket printer.",
-             "- Referral: an Abla client who recommends a restaurant that becomes a client gets their next month free.", "", "## Pages (English)"]
+             "- No commission per order. Restaurants need a laptop and a ticket printer."]
+    if SHOW_REFERRAL:
+        lines.append("- Referral: an Abla client who recommends a restaurant that becomes a client gets their next month free.")
+    lines += ["", "## Pages (English)"]
     for pid in PAGES:
         lines.append(f"- [{name_of('en', pid)}]({canonical('en', pid)})")
     lines += ["", "## Languages", "Spanish (" + SITE + "/es/), Portuguese (" + SITE + "/pt/), English (" + SITE + "/en/), French (" + SITE + "/fr/)."]

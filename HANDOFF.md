@@ -59,8 +59,9 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
   and ticket: the lunch rush from 12 to 2, office orders, no commission. Texts at the end of each content_xx.py.
 - Home page: "Tu WhatsApp, tus clientes" (orders come into the restaurant's own WhatsApp instead of a delivery app; no app is
   named) and "Cuando juega Colombia" (match day: everyone orders at half-time and after the final whistle).
-- Referral offer on the home page and the pricing page (REFER in each content_xx.py): a client who recommends a restaurant that
-  becomes a client gets their next month free. Agreed with the owner on 16 Nov 2026.
+- Referral offer (REFER in each content_xx.py): a client who recommends a restaurant that becomes a client gets their next
+  month free. Off for now at the owner's request (SHOW_REFERRAL = False in build.py); set it to True to show it again on the
+  home page and the pricing page.
 - Link preview images (og:image): src/og/og-<lang>.jpg, 1200x630, made by `python3 tools/og_images.py` (Playwright + Chrome,
   fonts in tools/fonts). Run it again when the home headline, its facts or the home ticket change.
 - Structured data: the home and pricing pages carry a SoftwareApplication with the WhatsApp AI price and the installation as Offers.
