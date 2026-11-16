@@ -33,7 +33,7 @@ EMAIL = ""          # e.g. "hola@abla.co"
 PRICE = {"wa": 279000, "setup": 349000, "resv_addon": 34900, "resv_only": 139000, "lang": 34900}
 
 PRODUCTS = ["whatsapp", "phone", "webshop", "kiosk"]
-SECTORS = ["rapidas", "pizzeria", "burger", "asadero", "sushi", "todos"]
+SECTORS = ["rapidas", "pizzeria", "burger", "asadero", "corrientazo", "sushi", "todos"]   # corrientazo: 16 Nov 2026
 PAGES = ["home"] + PRODUCTS + ["pricing"] + SECTORS + ["about", "contact", "legal"]
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700"
@@ -110,6 +110,23 @@ def org():
     if EMAIL: o["email"] = EMAIL
     return o
 
+def software_app(lang):
+    """Abla as a SoftwareApplication with its fixed prices as Offers (home and pricing pages), so search engines and AI assistants
+    read the prices as data. The other channels are quoted per restaurant, so they have no price here."""
+    t = T(lang)
+    def offer(name, amount, monthly=True):
+        o = {"@type": "Offer", "name": name, "price": str(amount), "priceCurrency": "COP", "url": canonical(lang, "pricing")}
+        if monthly:
+            o["priceSpecification"] = {"@type": "UnitPriceSpecification", "price": str(amount), "priceCurrency": "COP", "billingDuration": "P1M"}
+        return o
+    pr = t["PRICING"]
+    offers = [offer(t["P"]["whatsapp"]["name"], PRICE["wa"]),
+              offer(t["P"]["whatsapp"]["name"] + " · " + re.split(r"\.\s", fill(pr["wa_note"], lang))[0], PRICE["setup"], monthly=False)]
+    return {"@type": "SoftwareApplication", "@id": SITE + "/#app", "name": "Abla IA", "url": canonical(lang, "home"),
+            "applicationCategory": "BusinessApplication", "applicationSubCategory": "Restaurant ordering software (WhatsApp AI)",
+            "operatingSystem": "Web", "description": meta_of(lang, "home")[1], "inLanguage": t["HTML_LANG"],
+            "publisher": {"@id": SITE + "/#org"}, "featureList": [t["P"][k]["name"] for k in PRODUCTS], "offers": offers}
+
 def jsonld(lang, pid, faqs, crumbs):
     title, desc = meta_of(lang, pid)
     graph = [org(), {"@type": "WebPage", "@id": canonical(lang, pid) + "#page", "url": canonical(lang, pid), "name": title,
@@ -126,6 +143,8 @@ def jsonld(lang, pid, faqs, crumbs):
             prod["offers"] = [{"@type": "Offer", "price": str(PRICE["wa"]), "priceCurrency": "COP",
                                "priceSpecification": {"@type": "UnitPriceSpecification", "price": str(PRICE["wa"]), "priceCurrency": "COP", "billingDuration": "P1M"}}]
         graph.append(prod)
+    if pid in ("home", "pricing"):
+        graph.append(software_app(lang))
     good = [(fill(q, lang), fill(a, lang)) for q, a in faqs if "{{PH:" not in a]
     if good:
         graph.append({"@type": "FAQPage", "mainEntity": [
@@ -158,6 +177,8 @@ def head(lang, pid, prefix, faqs, crumbs):
              f'<meta property="og:title" content="{e(title)}">', f'<meta property="og:description" content="{e(desc)}">',
              f'<meta property="og:url" content="{canonical(lang, pid)}">', f'<meta property="og:locale" content="{t["OG_LOCALE"]}">',
              '<meta name="twitter:card" content="summary_large_image">', '<meta name="theme-color" content="#000000">',
+             f'<meta property="og:image" content="{SITE}/assets/og/og-{lang}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
+             f'<meta property="og:image:alt" content="{e(title)}"><meta name="twitter:image" content="{SITE}/assets/og/og-{lang}.jpg">',
              f'<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png">',
              '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
              f'<link rel="stylesheet" href="{FONTS}">',
@@ -646,7 +667,9 @@ def page_home(lang, prefix):
     sec_cards = "".join(f'<a class="card" href="{prefix + path_of(lang, s)}"><h3>{e(t["S"][s]["name"])}</h3><p>{e(t["S"][s].get("card", t["S"][s]["pains"][0][1]))}</p><span class="more">{e(u["more"])} →</span></a>' for s in SECTORS)
     body = hero(lang, prefix, d["h1"], d["lead"], hero_stage(lang, sc["order"], home_ticket(lang)), pg, badge=d["badge"], facts=d["facts"], cls=" hero-wa")
     body += scenes_band(lang, d["wa_eyebrow"], d["wa_title"], d["wa_text"])
+    body += own_band(lang)
     body += flow_band(lang)
+    body += match_band(lang)
     body += f'''<section class="band" id="productos"><div class="wrap"><div class="section-head"><span class="eyebrow">{e(d["products_eyebrow"])}</span><h2>{e(d["products_title"])}</h2><p>{e(d["products_text"])}</p></div>
 <div class="bento bento-abla">{product_cards(lang, prefix, pos=True)}</div></div></section>
 <section class="band"><div class="wrap"><div class="section-head"><span class="eyebrow">{e(d["sectors_eyebrow"])}</span><h2>{e(d["sectors_title"])}</h2><p>{e(d["sectors_text"])}</p></div><div class="grid">{sec_cards}</div></div></section>
@@ -655,8 +678,28 @@ def page_home(lang, prefix):
 <div class="section-head" style="margin:0;grid-column:span 2;max-width:none"><span class="eyebrow">{e(d["story_eyebrow"])}</span><h2>{e(d["story_title"])}</h2><p class="lead">{e(d["story_text"])}</p><p><a href="{prefix + path_of(lang, "about")}">{e(d["story_link"])} →</a></p></div>
 <div class="card"><span class="eyebrow" style="margin:0">{e(d["price_eyebrow"])}</span><h3>{e(fill(d["price_title"], lang))}</h3><p>{e(fill(d["price_text"], lang))}</p><a class="more" href="{prefix + path_of(lang, "pricing")}">{e(u["see_prices"])} →</a></div>
 </div></section>'''
-    body += faq_band(lang, d["faq"], pg) + cta_band(lang, prefix)
+    body += refer_band(lang, prefix) + faq_band(lang, d["faq"], pg) + cta_band(lang, prefix)
     return body, d["faq"], []
+
+def own_band(lang):
+    """The restaurant's own WhatsApp instead of a delivery app (no app is named)."""
+    eb, title, text, points = T(lang)["HOME"]["own"]
+    cards = "".join(f'<div class="feature"><h3>{e(a)}</h3><p>{e(x)}</p></div>' for a, x in points)
+    return (f'<section class="band"><div class="wrap"><div class="section-head"><span class="eyebrow">{e(eb)}</span><h2>{e(title)}</h2>'
+            f'<p>{e(text)}</p></div><div class="grid">{cards}</div></div></section>')
+
+def match_band(lang):
+    """Match day: when Colombia plays, everyone orders at half-time and after the final whistle."""
+    eb, title, text = T(lang)["HOME"]["match"]
+    return (f'<section class="band match-band"><div class="wrap"><div class="card match"><span class="match-ball" aria-hidden="true"></span>'
+            f'<div><span class="eyebrow">{e(eb)}</span><h2>{e(title)}</h2><p>{e(text)}</p></div></div></div></section>')
+
+def refer_band(lang, prefix):
+    """The referral offer: a client who recommends a restaurant that becomes a client gets their next month free."""
+    eb, title, text, btn = T(lang)["REFER"]
+    return (f'<section class="band refer-band"><div class="wrap"><div class="refer card"><div><span class="eyebrow">{e(eb)}</span>'
+            f'<h2>{e(title)}</h2><p>{e(text)}</p></div><div class="btn-row"><a class="btn btn-primary" href="{prefix + path_of(lang, "contact")}">{e(btn)} '
+            f'<span class="arr" aria-hidden="true">→</span></a></div></div></div></section>')
 
 def page_product(lang, pid, prefix):
     t = T(lang); d, u = t["P"][pid], t["UI"]
@@ -703,7 +746,7 @@ def page_pricing(lang, prefix):
 <div class="price-group"><h2>{e(d["other_h"])}</h2><p class="note">{e(d["other_note"])}</p><div class="price-grid">{others}</div></div>
 <div class="card" style="max-width:820px"><h3>{e(d["need_h"])}</h3><p>{e(d["need_text"])}</p><p>{e(fill(d["currency"], lang))}</p><p><a class="more" href="{prefix + path_of(lang, "contact")}">{e(u["demo"])} →</a></p></div>
 </div></section>'''
-    body += faq_band(lang, d["faq"], pg) + cta_band(lang, prefix)
+    body += refer_band(lang, prefix) + faq_band(lang, d["faq"], pg) + cta_band(lang, prefix)
     return body, d["faq"], [(u["home"], canonical(lang, "home")), (u["pricing"], canonical(lang, "pricing"))]
 
 def page_about(lang, prefix):
@@ -779,12 +822,28 @@ def not_found(prefix):
             f'<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{FONTS}">'
             f'<link rel="stylesheet" href="{prefix}assets/site.css{ASSET_Q["css"]}"><link rel="stylesheet" href="{prefix}assets/scenes.css{ASSET_Q["scenes"]}">\n</head>\n<body>\n{inner}\n</body>\n</html>\n')
 
-def sitemap():
+LASTMOD_FILE = os.path.join(HERE, "lastmod.json")
+def lastmod_dates(hashes):
+    """{address: date of the last change}. A page gets today's date when its HTML changed since the last build (asset versions
+    ignored); otherwise it keeps its date. Commit src/lastmod.json with the build."""
+    import datetime
+    try:
+        with open(LASTMOD_FILE, encoding="utf-8") as f: known = json.load(f)
+    except (OSError, ValueError):
+        known = {}
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    for url, h in hashes.items():
+        if known.get(url, [None])[0] != h: known[url] = [h, today]
+    with open(LASTMOD_FILE, "w", encoding="utf-8") as f: json.dump(dict(sorted(known.items())), f, indent=0, ensure_ascii=False)
+    return {u: known[u][1] for u in hashes}
+
+def sitemap(lastmod=None):
     urls = []
     for pid in PAGES:
         alts = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{canonical(l, pid)}"/>' for l in LANGS)
         for l in LANGS:
-            urls.append(f"<url><loc>{canonical(l, pid)}</loc>{alts}</url>")
+            lm = f"<lastmod>{lastmod[canonical(l, pid)]}</lastmod>" if lastmod and canonical(l, pid) in lastmod else ""
+            urls.append(f"<url><loc>{canonical(l, pid)}</loc>{lm}{alts}</url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
             + "\n".join(urls) + "\n</urlset>\n")
 
@@ -801,7 +860,8 @@ def llms():
              f"- Reservations by WhatsApp: {cop(PRICE['resv_addon'], 'en')} a month on top, or reservations only {cop(PRICE['resv_only'], 'en')} a month",
              f"- Extra language: {cop(PRICE['lang'], 'en')} a month per language (Spanish included, 60+ languages available)",
              "- Phone AI, online store, kiosk and POS: quote per restaurant",
-             "- No commission per order. Restaurants need a laptop and a ticket printer.", "", "## Pages (English)"]
+             "- No commission per order. Restaurants need a laptop and a ticket printer.",
+             "- Referral: an Abla client who recommends a restaurant that becomes a client gets their next month free.", "", "## Pages (English)"]
     for pid in PAGES:
         lines.append(f"- [{name_of('en', pid)}]({canonical('en', pid)})")
     lines += ["", "## Languages", "Spanish (" + SITE + "/es/), Portuguese (" + SITE + "/pt/), English (" + SITE + "/en/), French (" + SITE + "/fr/)."]
@@ -821,12 +881,20 @@ def build(outdir, preview):
     ASSET_Q.update(css="" if preview else "?v=" + asset_fingerprint(os.path.join(HERE, "site.css")),
                    js="" if preview else "?v=" + asset_fingerprint(os.path.join(HERE, "site.js")),
                    scenes="" if preview else "?v=" + asset_fingerprint(os.path.join(outdir, "assets", "scenes.css")))
+    os.makedirs(os.path.join(outdir, "assets", "og"))   # link preview images, made by tools/og_images.py
+    for l in LANGS:
+        src = os.path.join(HERE, "og", f"og-{l}.jpg")
+        if os.path.exists(src): shutil.copy(src, os.path.join(outdir, "assets", "og", f"og-{l}.jpg"))
+        else: print("missing link preview image src/og/og-%s.jpg: run python3 tools/og_images.py" % l)
+    hashes = {}
     for l in LANGS:
         for pid in PAGES:
-            write(os.path.join(outdir, path_of(l, pid)), render(l, pid, "../", preview))
+            page = render(l, pid, "../", preview)
+            write(os.path.join(outdir, path_of(l, pid)), page)
+            hashes[canonical(l, pid)] = hashlib.sha1(re.sub(r"\?v=[0-9a-f]{8}", "", page).encode()).hexdigest()[:16]
     write(os.path.join(outdir, "index.html"), render(DEFAULT, "home", "", preview))
     write(os.path.join(outdir, "404.html"), not_found("/" if not preview else ""))
-    write(os.path.join(outdir, "sitemap.xml"), sitemap())
+    write(os.path.join(outdir, "sitemap.xml"), sitemap(None if preview else lastmod_dates(hashes)))
     write(os.path.join(outdir, "robots.txt"), ROBOTS)
     write(os.path.join(outdir, "llms.txt"), llms())
 

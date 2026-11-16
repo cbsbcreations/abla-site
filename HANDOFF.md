@@ -53,3 +53,18 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
   github.io address now forwards to abla.co. "Enforce HTTPS" is ticked in the repo's Settings > Pages once GitHub has issued
   the certificate.
 - No live demos (the voice demo and chat demo on the other site are not part of this one; no keys in this site).
+
+## Added 16 Nov 2026
+- New restaurant type "corrientazo" (Corrientazos y almuerzos / Set lunches / Prato do dia / Menus du jour), with its own chat
+  and ticket: the lunch rush from 12 to 2, office orders, no commission. Texts at the end of each content_xx.py.
+- Home page: "Tu WhatsApp, tus clientes" (orders come into the restaurant's own WhatsApp instead of a delivery app; no app is
+  named) and "Cuando juega Colombia" (match day: everyone orders at half-time and after the final whistle).
+- Referral offer on the home page and the pricing page (REFER in each content_xx.py): a client who recommends a restaurant that
+  becomes a client gets their next month free. Agreed with the owner on 16 Nov 2026.
+- Link preview images (og:image): src/og/og-<lang>.jpg, 1200x630, made by `python3 tools/og_images.py` (Playwright + Chrome,
+  fonts in tools/fonts). Run it again when the home headline, its facts or the home ticket change.
+- Structured data: the home and pricing pages carry a SoftwareApplication with the WhatsApp AI price and the installation as Offers.
+- Sitemap dates: src/lastmod.json keeps a hash and a date per address; a page gets a new <lastmod> only when its HTML changed.
+  Commit lastmod.json with every build.
+- Search engines: abla.co is in Google Search Console (domain property, TXT record at Cloudflare) and in Bing Webmaster Tools
+  (docs/BingSiteAuth.xml, written by the build; do not remove it). The sitemap is submitted in both.

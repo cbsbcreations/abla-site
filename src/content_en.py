@@ -491,3 +491,39 @@ D = {
     "kiosk": "kiosk",
 },
 }
+
+
+# ---------------- 16 Nov 2026: set lunches, your own WhatsApp, match day and referrals ----------------
+D["SLUGS"]["corrientazo"] = "set-lunches"
+D["S"]["corrientazo"] = {
+    "name": "Set lunch restaurants", "nav": "Set lunches",
+    "title": "WhatsApp lunch orders with AI for set lunch restaurants | Abla IA",
+    "desc": "Corrientazos and set lunches: Abla answers your restaurant's WhatsApp at lunchtime, with 50+ chats at once, takes every order with its details and prints it in your kitchen.",
+    "h1": "WhatsApp lunch orders for set lunch restaurants",
+    "lead": "From 12 to 2 the WhatsApp never stops: lunches to take away, deliveries and office orders. Abla answers everyone at once, notes every detail and the ticket prints in your kitchen.",
+    "card": "Lunchtime without unanswered messages: 50+ chats at once.",
+    "pains": [
+        ("Noon without chaos", "Everyone orders lunch at the same time. Abla answers 50+ chats at once and nobody is left on read."),
+        ("Every lunch the way they asked", "No soup, blackberry juice, no salad: Abla notes every detail and it prints on the ticket."),
+        ("Office orders", "Several lunches in one order, each with its own notes, plus the delivery address."),
+        ("No commission", "A fixed monthly price, no commission on any lunch."),
+    ],
+    "ticket": [("3x", "Set lunch of the day"), ("", "1 no soup"), ("3x", "Blackberry juice")],
+    "chat": ("Hi! Can I get 3 set lunches for the office, one without soup, all with blackberry juice. To Cra 43A #1-50, 3rd floor",
+             "Sure! Your order:\n3x Set lunch of the day COP 45,000\n(1 no soup, blackberry juice)\nDelivery COP 5,000\nTotal: COP 50,000\nTo Cra. 43A #1-50, 3rd floor. Shall I confirm it?",
+             "Done! Your lunches are in the kitchen. They'll arrive in about 30 minutes."),
+    "faq": [
+        ("Does Abla tell customers what the lunch includes?", "Yes. Abla answers with your own menu: what each dish includes and what it costs."),
+        ("Does it work for office orders?", "Yes. Abla takes the full order, with the notes for each lunch, and asks for the delivery address."),
+        ("Do you charge commission per order?", "No. You pay a fixed monthly price: {wa}, plus a one-time installation of {setup}."),
+    ],
+}
+D["HOME"]["own"] = ("Your WhatsApp, your customers", "Orders come into your own WhatsApp, not an app",
+    "Delivery apps keep a share of every order. With Abla, your customers message your restaurant directly and you pay a fixed price each month.",
+    [("Your number", "Your customers message your restaurant's WhatsApp, as they always do."),
+     ("Your customers", "They write to you, not to an app. The contact stays in your WhatsApp."),
+     ("No commission", "A fixed monthly price. What the customer pays goes to your restaurant.")])
+D["HOME"]["match"] = ("Match day", "When Colombia plays, everyone orders at once",
+    "At half-time and at the final whistle, the WhatsApp explodes. Abla answers 50+ chats at the same time, takes every order and prints it in your kitchen. No customer is left on read.")
+D["REFER"] = ("Referral", "Recommend Abla, get a month free",
+    "Already using Abla? Recommend us to another restaurant. When they become a client, your next month is free.", "Recommend a restaurant")

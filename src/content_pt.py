@@ -491,3 +491,39 @@ D = {
     "kiosk": "totem",
 },
 }
+
+
+# ---------------- 16 nov 2026: prato do dia, seu próprio WhatsApp, dia de jogo e indicações ----------------
+D["SLUGS"]["corrientazo"] = "prato-do-dia"
+D["S"]["corrientazo"] = {
+    "name": "Pratos do dia e almoços", "nav": "Prato do dia",
+    "title": "Pedidos de almoço pelo WhatsApp com IA para restaurantes de prato do dia | Abla IA",
+    "desc": "Corrientazos e almoços executivos: a Abla atende o WhatsApp do seu restaurante na hora do almoço, com 50+ conversas ao mesmo tempo, anota cada pedido com os detalhes e imprime na sua cozinha.",
+    "h1": "Pedidos de almoço pelo WhatsApp para restaurantes de prato do dia",
+    "lead": "Do meio-dia às duas o WhatsApp não para: almoços para viagem, entregas e pedidos do escritório. A Abla responde todo mundo ao mesmo tempo, anota cada detalhe e o ticket sai na sua cozinha.",
+    "card": "A hora do almoço sem mensagens sem resposta: 50+ conversas ao mesmo tempo.",
+    "pains": [
+        ("Meio-dia sem caos", "Todo mundo pede almoço na mesma hora. A Abla atende 50+ conversas ao mesmo tempo e ninguém fica sem resposta."),
+        ("Cada almoço do jeito que pediram", "Sem sopa, com suco de amora, sem salada: a Abla anota cada detalhe e sai no ticket."),
+        ("Pedidos do escritório", "Vários almoços no mesmo pedido, cada um com suas observações, e o endereço para a entrega."),
+        ("Sem comissão", "Preço fixo por mês, sem comissão em cada almoço."),
+    ],
+    "ticket": [("3x", "Prato do dia"), ("", "1 sem sopa"), ("3x", "Suco de amora")],
+    "chat": ("Oi! Me vê 3 pratos do dia para o escritório, um sem sopa, todos com suco de amora. Na Cra 43A #1-50, 3º andar",
+             "Claro! Seu pedido:\n3x Prato do dia COP 45.000\n(1 sem sopa, suco de amora)\nEntrega COP 5.000\nTotal: COP 50.000\nNa Cra. 43A #1-50, 3º andar. Posso confirmar?",
+             "Pronto! Seus almoços já estão na cozinha. Chegam em uns 30 minutos."),
+    "faq": [
+        ("A Abla responde o que vem no almoço?", "Sim. A Abla responde com o seu próprio cardápio: o que vem em cada prato e quanto custa."),
+        ("Serve para pedidos de escritório?", "Sim. A Abla anota o pedido completo, com as observações de cada almoço, e pergunta o endereço da entrega."),
+        ("Vocês cobram comissão por pedido?", "Não. Você paga um preço fixo por mês: {wa}, mais uma instalação única de {setup}."),
+    ],
+}
+D["HOME"]["own"] = ("Seu WhatsApp, seus clientes", "Os pedidos chegam no seu próprio WhatsApp, não num app",
+    "Os apps de delivery ficam com uma parte de cada pedido. Com a Abla, seus clientes escrevem direto para o seu restaurante e você paga um preço fixo por mês.",
+    [("Seu número", "Seus clientes escrevem para o WhatsApp do seu restaurante, como sempre."),
+     ("Seus clientes", "Eles escrevem para você, não para um app. O contato fica no seu WhatsApp."),
+     ("Sem comissão", "Preço fixo por mês. O que o cliente paga é do seu restaurante.")])
+D["HOME"]["match"] = ("Dia de jogo", "Quando a Colômbia joga, todo mundo pede ao mesmo tempo",
+    "No intervalo e no apito final, o WhatsApp explode. A Abla atende 50+ conversas ao mesmo tempo, anota cada pedido e imprime na sua cozinha. Nenhum cliente fica sem resposta.")
+D["REFER"] = ("Indicação", "Indique a Abla e ganhe um mês grátis",
+    "Já usa a Abla? Indique a gente para outro restaurante. Se ele virar cliente, seu próximo mês é grátis.", "Indicar um restaurante")

@@ -10,6 +10,7 @@ Abla IA is a WhatsApp AI for restaurants in Colombia: it answers customers on Wh
 - Extra language: COP 34,900 a month per language (Spanish included, 60+ languages available)
 - Phone AI, online store, kiosk and POS: quote per restaurant
 - No commission per order. Restaurants need a laptop and a ticket printer.
+- Referral: an Abla client who recommends a restaurant that becomes a client gets their next month free.
 
 ## Pages (English)
 - [Home](https://abla.co/en/)
@@ -22,6 +23,7 @@ Abla IA is a WhatsApp AI for restaurants in Colombia: it answers customers on Wh
 - [Pizzerias](https://abla.co/en/pizzerias)
 - [Burgers](https://abla.co/en/burger-restaurants)
 - [Rotisserie chicken](https://abla.co/en/rotisserie-chicken)
+- [Set lunches](https://abla.co/en/set-lunches)
 - [Sushi](https://abla.co/en/sushi)
 - [All restaurants](https://abla.co/en/all-restaurants)
 - [About](https://abla.co/en/about)
