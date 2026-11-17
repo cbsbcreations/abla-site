@@ -3,6 +3,12 @@
 Website for Abla IA, the Colombian restaurant AI (brand of the Colombian venture; separate from Conveasy).
 Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain abla.co (not connected yet).
 
+## Privacy: no personal names in this repo
+- The repository is public. Do not write the owner's name (or any other personal name) in files, comments or commit messages;
+  write "the owner". On 17 Nov 2026 the whole history was rewritten (git filter-repo --sensitive-data-removal) to take the
+  owner's name out, and force-pushed. Anyone with a copy from before that must delete it and clone again; pulling into an
+  old copy and pushing would bring the old history back.
+
 ## Build
 - `python3 src/build.py` writes `docs/` (the site, for GitHub Pages) and `preview/` (same pages with a yellow preview bar).
 - Texts: `src/content_es.py` is the master (Spanish, Colombia). `content_en.py`, `content_pt.py` (Brazil), `content_fr.py`
