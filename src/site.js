@@ -92,7 +92,7 @@
         if (y > H) continue;
         var tw = reduce ? 1 : 0.55 + 0.45 * Math.sin(time * s.s + s.p);
         ctx.globalAlpha = s.a * tw;
-        ctx.fillStyle = s.r > 1.05 ? '#FFE3C4' : '#FFFFFF';
+        ctx.fillStyle = s.r > 1.05 ? '#E4D2FF' : '#FFFFFF';
         ctx.beginPath(); ctx.arc(s.x, y, s.r, 0, 6.2832); ctx.fill();
       }
       ctx.globalAlpha = 1;

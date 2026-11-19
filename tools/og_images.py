@@ -32,25 +32,25 @@ def page(lang):
     via, when = sc["ticket_meta"]
     return f"""<!doctype html><html lang="{t['HTML_LANG']}"><head><meta charset="utf-8"><style>{faces()}
 *{{box-sizing:border-box;margin:0}}
-body{{width:1200px;height:630px;background:#000;color:#F5F5F7;font-family:F,system-ui,sans-serif;overflow:hidden;position:relative}}
-.glow{{position:absolute;right:-180px;bottom:-260px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgb(255 200 61/.40),rgb(255 200 61/.10) 55%,transparent 75%)}}
-.ring{{position:absolute;right:120px;top:40px;width:520px;height:520px;border-radius:50%;border:2px solid rgb(255 216 107/.18)}}
+body{{width:1200px;height:630px;background:#0F0B16;color:#F5F1FB;font-family:F,system-ui,sans-serif;overflow:hidden;position:relative}}
+.glow{{position:absolute;right:-180px;bottom:-260px;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgb(129 74 200/.62),rgb(129 74 200/.16) 55%,transparent 75%)}}
+.ring{{position:absolute;right:120px;top:40px;width:520px;height:520px;border-radius:50%;border:2px solid rgb(201 162 255/.22)}}
 .wrap{{position:absolute;inset:64px 72px;display:grid;grid-template-rows:auto 1fr auto;gap:24px;width:680px}}
 .logo{{display:flex;align-items:center;gap:12px;font-weight:800;font-size:42px;letter-spacing:-.03em}}
-.logo svg{{width:50px;height:50px}} .logo .lm-b{{fill:#FFC83D}} .logo .lm-d{{fill:#1A1300}}
-.logo sup{{font-size:17px;font-weight:800;background:#FFC83D;color:#1A1300;border-radius:6px;padding:3px 7px;margin-left:-2px;align-self:flex-start;margin-top:4px}}
+.logo svg{{width:50px;height:50px}} .logo .lm-b{{fill:#A774F0}} .logo .lm-d{{fill:#0F0B16}}
+.logo sup{{font-size:17px;font-weight:800;background:#814AC8;color:#FFFFFF;border-radius:6px;padding:3px 7px;margin-left:-2px;align-self:flex-start;margin-top:4px}}
 h1{{align-self:center;font-weight:800;font-size:62px;line-height:1.05;letter-spacing:-.035em;text-wrap:balance}}
-h1 em{{font-style:normal;color:#FFD86B}}
+h1 em{{font-style:normal;color:#25D366}}
 .chips{{display:flex;flex-wrap:wrap;gap:10px}}
-.chips span{{border:1px solid rgb(255 255 255/.18);background:#0B0B0D;border-radius:999px;padding:9px 16px;font-weight:500;font-size:21px}}
+.chips span{{border:1px solid rgb(255 255 255/.18);background:#1B1526;border-radius:999px;padding:9px 16px;font-weight:500;font-size:21px}}
 .bubble{{position:absolute;right:86px;top:84px;width:330px;background:#D9FDD3;color:#111b21;border-radius:16px 4px 16px 16px;padding:16px 18px;font-size:21px;font-weight:500;line-height:1.3;
   box-shadow:0 20px 50px rgb(0 0 0/.5);transform:rotate(-2deg)}}
-.ticket{{position:absolute;right:70px;top:250px;width:330px;background:#FFFDF6;color:#1E1D19;border-radius:6px;padding:20px 24px 16px;transform:rotate(4deg);box-shadow:0 30px 80px rgb(0 0 0/.6)}}
-.ticket::after{{content:"";position:absolute;left:0;right:0;bottom:-10px;height:12px;background:linear-gradient(-45deg,transparent 6px,#FFFDF6 0) 0 0/12px 12px repeat-x,linear-gradient(45deg,transparent 6px,#FFFDF6 0) 0 0/12px 12px repeat-x}}
-.t-head{{display:flex;justify-content:space-between;font-weight:800;font-size:22px;letter-spacing:.06em;border-bottom:2px dashed #D9D3C0;padding-bottom:10px}}
-.t-meta{{display:grid;gap:2px;font-size:16px;color:#5b5a52;padding:10px 0;border-bottom:2px dashed #D9D3C0}}
+.ticket{{position:absolute;right:70px;top:250px;width:330px;background:#FCFAFF;color:#1E1D19;border-radius:6px;padding:20px 24px 16px;transform:rotate(4deg);box-shadow:0 30px 80px rgb(0 0 0/.6)}}
+.ticket::after{{content:"";position:absolute;left:0;right:0;bottom:-10px;height:12px;background:linear-gradient(-45deg,transparent 6px,#FCFAFF 0) 0 0/12px 12px repeat-x,linear-gradient(45deg,transparent 6px,#FCFAFF 0) 0 0/12px 12px repeat-x}}
+.t-head{{display:flex;justify-content:space-between;font-weight:800;font-size:22px;letter-spacing:.06em;border-bottom:2px dashed #DDD5EA;padding-bottom:10px}}
+.t-meta{{display:grid;gap:2px;font-size:16px;color:#5b5a52;padding:10px 0;border-bottom:2px dashed #DDD5EA}}
 ul{{list-style:none;padding:10px 0 4px;display:grid;gap:7px;font-size:19px;font-weight:700}}
-li b{{display:inline-block;min-width:42px;color:#B57A00}}
+li b{{display:inline-block;min-width:42px;color:#6B3FB0}}
 li.sub{{font-weight:500;font-size:16px;color:#5b5a52;padding-left:42px;margin-top:-4px}}
 </style></head><body><div class="glow"></div><div class="ring"></div>
 <div class="wrap"><div class="logo">{b.LOGO_MARK}Abla<sup>IA</sup></div><h1>{h1}</h1><div class="chips">{chips}</div></div>

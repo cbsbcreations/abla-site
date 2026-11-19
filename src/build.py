@@ -176,7 +176,7 @@ def head(lang, pid, prefix, faqs, crumbs):
              '<meta property="og:type" content="website">', '<meta property="og:site_name" content="Abla IA">',
              f'<meta property="og:title" content="{e(title)}">', f'<meta property="og:description" content="{e(desc)}">',
              f'<meta property="og:url" content="{canonical(lang, pid)}">', f'<meta property="og:locale" content="{t["OG_LOCALE"]}">',
-             '<meta name="twitter:card" content="summary_large_image">', '<meta name="theme-color" content="#000000">',
+             '<meta name="twitter:card" content="summary_large_image">', '<meta name="theme-color" content="#0F0B16">',
              f'<meta property="og:image" content="{SITE}/assets/og/og-{lang}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
              f'<meta property="og:image:alt" content="{e(title)}"><meta name="twitter:image" content="{SITE}/assets/og/og-{lang}.jpg">',
              f'<link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png">',
@@ -404,17 +404,17 @@ def phone_scene_i(lang):
           '<rect x="148" y="158" width="26" height="24" rx="8"/><rect x="226" y="158" width="26" height="24" rx="8"/>')
     keys = "".join(f'<circle cx="{x}" cy="{y}" r="2.4"/>' for y in (200, 207.5, 215) for x in (188, 200, 212))
     counter = f'''<svg class="ps-art" viewBox="0 0 400 360" aria-hidden="true">
-<path d="M46 80H74L104 222H16zM326 80H354L384 222H296z" fill="#FFD86B" opacity=".07"/>
+<path d="M46 80H74L104 222H16zM326 80H354L384 222H296z" fill="#C9A2FF" opacity=".08"/>
 <path d="M60 0V64M340 0V64" stroke="#2E2E36" stroke-width="2"/>
 <path d="M42 78a18 15 0 0 1 36 0zM322 78a18 15 0 0 1 36 0z" fill="#2A2A32" stroke="#45454F" stroke-width="1.5"/>
-<circle cx="60" cy="80" r="4" fill="#FFE9B0"/><circle cx="340" cy="80" r="4" fill="#FFE9B0"/>
+<circle cx="60" cy="80" r="4" fill="#F1E6FF"/><circle cx="340" cy="80" r="4" fill="#F1E6FF"/>
 <rect x="128" y="64" width="144" height="80" rx="7" fill="#121216" stroke="#2C2C35" stroke-width="1.5"/>
-<path d="M144 82H190" stroke="#FFC83D" stroke-width="5" stroke-linecap="round"/>
+<path d="M144 82H190" stroke="#C9A2FF" stroke-width="5" stroke-linecap="round"/>
 <path d="M144 100H210M144 114H200M144 128H216" stroke="#4E4E58" stroke-width="3.2" stroke-linecap="round"/>
 <path d="M240 100H256M240 114H256M240 128H256" stroke="#85858F" stroke-width="3.2" stroke-linecap="round"/>
 <rect x="26" y="232" width="348" height="128" fill="#111115" stroke="#24242C" stroke-width="1.5"/>
 <path d="M142 236V360M258 236V360" stroke="#1C1C23" stroke-width="2"/>
-<path d="M26 248H374" stroke="#FFC83D" stroke-width="2.4" opacity=".55"/>
+<path d="M26 248H374" stroke="#A774F0" stroke-width="2.4" opacity=".55"/>
 <rect x="16" y="222" width="368" height="11" rx="4" fill="#2A2A33"/>
 <rect x="68" y="216" width="46" height="6" rx="2" fill="#2E2E37"/>
 <path d="M73 216a18 17 0 0 1 36 0z" fill="#2A2A32" stroke="#4A4A55" stroke-width="1.5"/>
@@ -423,15 +423,15 @@ def phone_scene_i(lang):
 <path d="M294 186l-3-16M301 184l-1-18M308 184l1-17M315 186l3-15" stroke="#FFD86B" stroke-width="4.5" stroke-linecap="round"/>
 <path d="M288 184H322L316 222H294z" fill="#D9342B"/><path d="M291 196H319" stroke="#FFFDF6" stroke-opacity=".55" stroke-width="2"/>
 <path d="M346 188v-6a8 8 0 0 1 16 0v6" stroke="#4A4A55" stroke-width="2"/>
-<rect x="336" y="188" width="36" height="34" rx="2.5" fill="#1F1F26" stroke="#3A3A44" stroke-width="1.5"/><circle cx="354" cy="205" r="5.5" fill="#FFC83D"/>
+<rect x="336" y="188" width="36" height="34" rx="2.5" fill="#1F1F26" stroke="#3A3A44" stroke-width="1.5"/><circle cx="354" cy="205" r="5.5" fill="#25D366"/>
 <path d="M154 222L165 186Q167 179 174 179H226Q233 179 235 186L246 222z" fill="#1A1A20" stroke="#3E3E48" stroke-width="2" stroke-linejoin="round"/>
 <rect x="184" y="186" width="32" height="7" rx="2" fill="#2A2A33"/><g fill="#3A3A44">{keys}</g>
 <g class="ps-hs ps-hs-s" fill="#26262E" stroke="#4A4A55" stroke-width="2">{hs}</g>
-<g class="ps-ringing"><rect x="184" y="186" width="32" height="7" rx="2" fill="#FFC83D"/>
+<g class="ps-ringing"><rect x="184" y="186" width="32" height="7" rx="2" fill="#25D366"/>
 <g class="ps-hs ps-hs-r" fill="#26262E" stroke="#4A4A55" stroke-width="2">{hs}</g>
-<g stroke="#FFC83D" stroke-width="3.5" stroke-linecap="round"><path class="ps-arc" d="M139 156Q131 170 139 184M261 156Q269 170 261 184"/><path class="ps-arc ps-arc2" d="M128 150Q117 170 128 190M272 150Q283 170 272 190"/></g></g>
-<circle class="ps-ripple" cx="200" cy="168" r="40" stroke="#FFD86B" stroke-width="2.5"/>
-<path class="ps-burst" d="M200 106V92M220.7 111.2L227.2 98.8M179.3 111.2L172.8 98.8M236 124.8L247.5 116.7M164 124.8L152.5 116.7" stroke="#FFD86B" stroke-width="3.5" stroke-linecap="round"/>
+<g stroke="#25D366" stroke-width="3.5" stroke-linecap="round"><path class="ps-arc" d="M139 156Q131 170 139 184M261 156Q269 170 261 184"/><path class="ps-arc ps-arc2" d="M128 150Q117 170 128 190M272 150Q283 170 272 190"/></g></g>
+<circle class="ps-ripple" cx="200" cy="168" r="40" stroke="#5BE38F" stroke-width="2.5"/>
+<path class="ps-burst" d="M200 106V92M220.7 111.2L227.2 98.8M179.3 111.2L172.8 98.8M236 124.8L247.5 116.7M164 124.8L152.5 116.7" stroke="#5BE38F" stroke-width="3.5" stroke-linecap="round"/>
 </svg>'''
     timer = '<span class="ps-time"><span>' + "".join(f"<em>{x}</em>" for x in PS_TIMER) + "</span></span>"
     call = (f'<div class="ps-act ps-a2"><div class="ps-orb"><span class="ps-wv">{"<i></i>" * 7}</span></div>'
