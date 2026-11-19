@@ -233,7 +233,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .chat .c-top small { font-weight: 400; color: var(--ok); font-size: .76rem; }
 .bubble { padding: 10px 13px; border-radius: 16px; font-size: .88rem; line-height: 1.45; max-width: 86%; }
 .bubble.in { background: var(--surface-2); border: 1px solid var(--line); justify-self: start; border-bottom-left-radius: 5px; }
-.bubble.ai { background: linear-gradient(135deg, #7A45C2, #9D6AE6); color: #FFFFFF; justify-self: end; border-bottom-right-radius: 5px; }
+.bubble.ai { background: linear-gradient(135deg, #6B3AB3, #8A55D9); color: #FFFFFF; justify-self: end; border-bottom-right-radius: 5px; }
 .chat-btns { display: flex; gap: 8px; justify-content: flex-end; }
 .chat-btns span { font-size: .8rem; font-weight: 500; padding: 7px 13px; border-radius: 8px; background: var(--surface-2); color: var(--ink); border: 1px solid var(--line-2); }
 .stage .bubble, .stage .chat-btns { animation: pop .5s var(--ease) both; }
@@ -519,7 +519,7 @@ fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
 .wa { --wa-bg: #0B141A; --wa-bar: #1F2C34; --wa-in: #202C33; --wa-out: #005C4B; --wa-ink: #E9EDEF; --wa-dim: #8696A0; --wa-green: #25D366; --wa-send: #00A884;
   display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto auto; width: 100%; max-width: 400px; height: 520px; justify-self: center; border-radius: 22px; overflow: hidden; background: var(--wa-bg); color: var(--wa-ink); border: 1px solid rgb(255 255 255 / .08); box-shadow: 0 30px 80px -30px rgb(0 0 0 / .8), 0 0 60px -30px rgb(37 211 102 / .5); min-width: 0; font-size: .95rem; }
 .wa-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--wa-bar); }
-.wa-av { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #E4D2FF, #A774F0 60%, #4B2483); color: #FFFFFF; font-weight: 700; flex: none; }
+.wa-av { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #9A6BE3, #7B47C9 55%, #4B2483); color: #FFFFFF; font-weight: 700; flex: none; }
 .wa-who { display: grid; line-height: 1.2; min-width: 0; }
 .wa-who b { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
 .wa-who small { color: var(--wa-dim); font-size: .78rem; }
@@ -829,7 +829,7 @@ fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
 .wchat .wc-r1 .bubble { animation-name: wc-m1; } .wchat .wc-r2 .bubble { animation-name: wc-m2; } .wchat .wc-r3 .bubble { animation-name: wc-m3; } .wchat .wc-r4 .bubble { animation-name: wc-m4; }
 .wc-dots { position: absolute; top: 0; display: inline-flex; align-items: center; gap: 1.1cqi; padding: 3.5cqi 3.6cqi; border-radius: 4.4cqi; opacity: 0; animation: var(--t) linear infinite; }
 .wc-r1 .wc-dots { left: 0; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); border-bottom-left-radius: 1.4cqi; animation-name: wc-t1; }
-.wc-r2 .wc-dots, .wc-r4 .wc-dots { right: 0; background: linear-gradient(135deg, #7A45C2, #9D6AE6); color: #FFFFFF; border-bottom-right-radius: 1.4cqi; }
+.wc-r2 .wc-dots, .wc-r4 .wc-dots { right: 0; background: linear-gradient(135deg, #6B3AB3, #8A55D9); color: #FFFFFF; border-bottom-right-radius: 1.4cqi; }
 .wc-r2 .wc-dots { animation-name: wc-t2; } .wc-r4 .wc-dots { animation-name: wc-t4; }
 .wc-dots i { width: 1.7cqi; height: 1.7cqi; border-radius: 50%; background: currentColor; animation: wc-bounce 1s ease-in-out infinite; }
 .wc-dots i:nth-child(2) { animation-delay: -.82s; } .wc-dots i:nth-child(3) { animation-delay: -.64s; }
@@ -905,7 +905,7 @@ fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
 .ps-time em { font-style: normal; height: 1.2em; }
 .ps-say { max-width: 80%; padding: 2.2cqi 3.2cqi; border-radius: 3.6cqi; font: 400 3.6cqi/1.42 var(--font-body); animation: var(--t) var(--ease) infinite both; }
 .ps-s1 { justify-self: start; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line-2); border-top-left-radius: 1cqi; transform-origin: 0 0; animation-name: ps-s1; }
-.ps-s2 { justify-self: end; color: #FFFFFF; background: linear-gradient(135deg, #7A45C2, #9D6AE6); font-weight: 500; border-top-right-radius: 1cqi; transform-origin: 100% 0; animation-name: ps-s2; }
+.ps-s2 { justify-self: end; color: #FFFFFF; background: linear-gradient(135deg, #6B3AB3, #8A55D9); font-weight: 500; border-top-right-radius: 1cqi; transform-origin: 100% 0; animation-name: ps-s2; }
 .ps-ok { justify-self: center; display: inline-flex; align-items: center; gap: 1.2cqi; margin-top: .6cqi !important; padding: 1.3cqi 2.8cqi 1.3cqi 2cqi; border-radius: 999px; font: 600 3cqi/1.2 var(--font-body); color: var(--ok); background: rgb(52 211 153 / .1); border: 1px solid rgb(52 211 153 / .3); animation: ps-ok var(--t) var(--ease) infinite both; }
 .ps-ok svg { width: 3.4cqi; height: 3.4cqi; }
 
@@ -1031,7 +1031,7 @@ fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
 .wap-ic { display: grid; place-items: center; width: 6.2cqi; height: 6.2cqi; flex: none; }
 .wap-ic svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .wap-bar .wap-ic:first-child { width: 5.4cqi; margin-right: -1.2cqi; }
-.wap-av { flex: none; width: 10cqi; height: 10cqi; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #E4D2FF, #A774F0 60%, #6B3FB0); color: #FFFFFF; font: 700 3.5cqi/1 var(--font-body); }
+.wap-av { flex: none; width: 10cqi; height: 10cqi; border-radius: 50%; display: grid; place-items: center; background: radial-gradient(circle at 35% 30%, #9A6BE3, #7B47C9 55%, #4B2483); color: #FFFFFF; font: 700 3.5cqi/1 var(--font-body); }
 .wap-who { flex: 1; min-width: 0; display: grid; line-height: 1.22; }
 .wap-who b { font-size: 4.2cqi; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .wap-st { display: grid; font-size: 3.15cqi; opacity: .92; }

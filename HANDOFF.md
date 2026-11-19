@@ -10,7 +10,7 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
   old copy and pushing would bring the old history back.
 
 ## Build
-- `python3 src/build.py` writes `docs/` (the site, for GitHub Pages) and `preview/` (same pages with a yellow preview bar).
+- `python3 src/build.py` writes `docs/` (the site, for GitHub Pages) and `preview/` (same pages with a green preview bar).
 - Texts: `src/content_es.py` is the master (Spanish, Colombia). `content_en.py`, `content_pt.py` (Brazil), `content_fr.py`
   have exactly the same structure; the build fails if a key or a list length differs from Spanish.
 - Languages: es (root and x-default), pt, en, fr. 15 pages per language: home, WhatsApp IA, Teléfono IA, Tienda online y QR,
@@ -25,7 +25,7 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
   sales team in Colombia that visits restaurants, POS also offered. Nothing else is claimed (no payment links, no dashboard
   features, no setup time, no trial, no clients or numbers).
 
-## Still to fill (yellow markers, list in PLACEHOLDERS.txt)
+## Still to fill (purple markers, list in PLACEHOLDERS.txt)
 - `WA_NUMBER` / `WA_DISPLAY` and `EMAIL` at the top of build.py. While empty, WhatsApp buttons go to the contact page and the
   contact form only shows a note; once WA_NUMBER is set the form opens WhatsApp with the request.
 - Company: legal name, NIT, address, email, phone (footer, about, privacy page).
@@ -33,8 +33,12 @@ Built 14-15 Nov 2026 from the Conveasy site generator, WhatsApp first. Domain ab
 - Online store: own domain answer. Rotisserie FAQ: can orders be scheduled for later?
 
 ## Look
-- Same base as conveasy.be (dark, star field) with a sunflower-yellow accent (#FFC83D) and the Abla mark: a yellow speech
-  bubble with three typing dots (`LOGO_MARK` in build.py, `src/favicon.svg`, `src/apple-touch-icon.png`, `brand/`).
+- Same base as conveasy.be (star field), in the purple and green of the Abla sales slides (since 19 Nov 2026, was yellow):
+  background #0F0B16 with purple glass and glows, purple #814AC8 / #A774F0 / #C9A2FF for the brand, labels and links,
+  WhatsApp green #25D366 (dark text #0F0B16) for buttons, tags and the headline word. White text only on purple of
+  #8A55D9 or darker. The fries in the phone scene and the Colombian flag ring keep their own colours.
+- The Abla mark: a purple speech bubble with three typing dots (`LOGO_MARK` in build.py, `src/favicon.svg`,
+  `src/apple-touch-icon.png`, `brand/`). Link preview images: `python3 tools/og_images.py`.
 - Headings Plus Jakarta Sans, body Figtree.
 
 ## Animations (WhatsApp first)
